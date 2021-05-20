@@ -14,7 +14,7 @@ let viewScoresBtn = document.getElementById("view-scores")
 
 //start button div
 let startButton = document.getElementById("start-button");
-startButton.addEventListener("click", setTime);
+startButton.addEventListener("click", timer);
 
 
 // variable for the questions title
@@ -75,3 +75,89 @@ function displayQuestions() {
         }
     }
 }
+
+function captureUserScore() {
+    timer.remove();
+    choices.textContent = "";
+
+    let initialsInput = document.createElement("input");
+    let postScoreBtn = document.createElement("input");
+
+    results.innerHTML = `You scored ${score} points! Enter initials: `;
+    initialsInput.setAttribute("type", "text");
+    postScoreBtn.setAttribute("type", "button");
+    postScoreBtn.setAttribute("value", "Post My Score!");
+    postScoreBtn.addEventListener("click", function(event) {
+        event.preventDefault();
+        let scoresArray = defineScoresArray(storedArray, emptyArray);
+
+        let initials = initialsInput.value;
+        let userAndScore = {
+            initials: initials,
+            score: score,
+        };
+
+        scoresArray.push(userAndScore);
+        saveScores(scoresArray);
+        displayAllScores();
+        clearScoresBtn();
+        goBackBtn();
+        viewScoresBtn.remove();
+    });
+    results.append(initialsInput);
+    results.append(postScoreBtn);
+}
+
+const saveScores = (array) => {
+    window.localStorage.setItem("highScores", JSON.stringify(array));
+}
+
+const defineScoresArray = (arr1, arr2) => {
+    if (arr1 !== null) {
+        return arr1
+    } else {
+        return arr2
+    }
+}
+
+const removeEls = (...els) => {
+    for (let el of els) el.remove();
+}
+
+function displayAllScores() {
+    removeEls(timer, startButton, results);
+    let scoresArray = defineScoresArray(storedArray, emptyArray);
+
+    scoresArray.forEach(obj => {
+        let initials = obj.initials;
+        let storedScore = obj.score;
+        let resultsP = document.createElement("p");
+        resultsP.innerText = `${initials}: ${storedScore}`;
+        scoresDiv.append(resultsP);
+    });
+}
+
+function viewScores() {
+    viewScoresBtn.addEventListener("click", function(event) {
+        event.preventDefault();
+        removeEls(timer, startButton);
+        displayAllScores();
+        removeEls(viewScoresBtn);
+        clearScoresBtn();
+        goBackBtn();
+    });
+}
+
+function clearScoresBtn() {
+    let clearBtn = document.createElement("input");
+    clearBtn.setAttribute("type", "button");
+    clearBtn.setAttribute("value", "Clear Scores");
+    clearBtn.addEventListener("click", function(event) {
+        event.preventDefault();
+        removeEls(scoresDiv);
+        window.localStorage.removeItem("highScores");
+    })
+    scoresDiv.append(clearBtn)
+}
+
+viewScores();
