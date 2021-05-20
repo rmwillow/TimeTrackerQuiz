@@ -16,6 +16,11 @@ let viewScoresBtn = document.getElementById("view-scores")
 let startButton = document.getElementById("start-button");
 startButton.addEventListener("click", setTime);
 
+var postScoreBtn = document.getElementById("submit");
+
+var initialsInput = document.getElementById("textInput");
+
+
 
 // variable for the questions title
 var questionDiv = document.getElementById("question-div");
@@ -121,8 +126,11 @@ function captureUserScore() {
 
     resultsDiv.innerHTML = `You scored ${score} points! Enter initials: `;
     initialsInput.setAttribute("type", "text");
+    initialsInput.classList.add("textInput")
     postScoreBtn.setAttribute("type", "button");
-    postScoreBtn.setAttribute("value", "Post My Score!");
+    postScoreBtn.classList.add("submit")
+
+    postScoreBtn.setAttribute("value", "Submit Score!");
     postScoreBtn.addEventListener("click", function(event) {
         event.preventDefault();
         let scoresArray = defineScoresArray(storageArray, emptyArray);

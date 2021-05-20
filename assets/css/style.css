@@ -32,6 +32,22 @@ p {
     border: var(--darkPurple) solid;
 }
 
+.submit,
+.textInput {
+    font-style: var(--white);
+    display: block;
+    padding: 15px 25px;
+    margin: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    color: white;
+    background-color: var(--lightPurple);
+    border: none;
+    border-radius: 15px;
+}
+
 button,
 #start-button,
 #correct {
