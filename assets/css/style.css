@@ -1,7 +1,74 @@
+:root {
+    --darkPurple: #351c75;
+    --lightPurple: #d497ef;
+    --white: #ffffff;
+    --gray: #d5d5d5;
+    --test: var(--lightPurple)
+}
+
+#centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 button {
     display: block;
+    padding: 15px 25px;
+    margin: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    color: white;
+    background-color: var(--darkPurple);
+    border: none;
+    border-radius: 15px;
+}
+
+button:hover {
+    background-color: var(--lightPurple)
+}
+
+button:active {
+    background-color: var(--lightPurple);
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 li {
     list-style-type: none;
+}
+
+#wrong #correct {
+    background-color: violet;
+}
+
+
+/* Create two equal columns that floats next to each other */
+
+#view-scores {
+    color: var(--lightPurple);
+    background-color: var(--white);
+    border: none;
+}
+
+
+/* time and scores header */
+
+.column {
+    float: left;
+    width: 85%;
+    padding: 25px;
+    height: 300px;
+}
+
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }

@@ -11,18 +11,36 @@
 </head>
 
 <body>
-    <input id="view-scores" type="button" value="View Scores">
-    <span id="timer">Time: 0</span>
-    <div id="scores-div"></div>
-    <br>
-    <div id="question-div"></div>
-    <br>
-    <div id="choices"></div>
-    <br>
-    <form id="results"></form>
-    <div id="buttons">
-        <input id="start-button" type="button" value="Start Quiz">
-    </div>
+    <container>
+        <section class="row">
+            <input id="view-scores" type="button" value="View high Scores">
+            <span class="column" id="timer">Time: 0</span>
+            <div class="column" id="scores-div"></div>
+        </section>
+
+        <section class="quesChoice" id="centered">
+
+            <div id="question-div"></div>
+
+            <div id="choices"></div>
+
+            <div id="wrong"></div>
+            <div id="correct"></div>
+
+        </section>
+    </container>
+
+
+    <section class="startResults">
+
+        <form id="results"></form>
+
+        <div id="buttons">
+            <input id="start-button" type="button" value="Start Quiz">
+        </div>
+
+    </section>
+
 
     <script src="./js/questions.js"></script>
     <script src="./js/script.js"></script>

@@ -1,4 +1,6 @@
-var questions = [{
+var questions = [
+
+    {
         title: "What had to change to achieve the alternating alignment for the trainer image and bio text even though the float property values are all set to left?",
         multiChoice: ["The order of the HTML elements", "Specific width for the image and bio text", "All of the above"],
         answer: "All of the above"
