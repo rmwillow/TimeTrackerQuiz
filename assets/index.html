@@ -11,27 +11,21 @@
 </head>
 
 <body>
-    <container>
-        <section class="row">
-            <input id="view-scores" type="button" value="View high Scores">
-            <span class="column" id="timer">Time: 0</span>
-            <div class="column" id="scores-div"></div>
-        </section>
 
-        <section class="quesChoice" id="centered">
+    <section class="row">
+        <input id="view-scores" type="button" value="View high Scores">
+        <span class="column" id="timer">Time: 0</span>
+        <div class="column" id="scores-div"></div>
+    </section>
 
-            <div id="question-div"></div>
+    <section id="centered" class="quesChoice">
+        <div id="question-div"></div>
+        <div id="choices"></div>
+        <hr id="lineBreak" style="display: none" class="mt-4">
+        <p id="answerCheck" style="display: none;"></p>
+    </section>
 
-            <div id="choices"></div>
-
-            <div id="wrong"></div>
-            <div id="correct"></div>
-
-        </section>
-    </container>
-
-
-    <section class="startResults">
+    <section id="centered" class="startResults">
 
         <form id="results"></form>
 
@@ -40,6 +34,7 @@
         </div>
 
     </section>
+
 
 
     <script src="./js/questions.js"></script>

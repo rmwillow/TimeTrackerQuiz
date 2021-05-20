@@ -41,6 +41,9 @@ var questionCount = 0;
 //keeping score
 let score = 0
 
+var correctAns = 0;
+var answerCheck = document.getElementById("answerCheck");
+
 //Timer starts when the user clicks startButton (see above).
 function setTime() {
     displayQuestions();
@@ -56,8 +59,12 @@ function setTime() {
 }
 
 
+
 //function to load the questions on the page
 function displayQuestions() {
+    var lineBreak = document.getElementById("lineBreak");
+    lineBreak.style.display = "block";
+    answerCheck.style.display = "block";
     removeEls(startButton);
     if (questionCount < questions.length) {
         questionDiv.innerHTML = questions[questionCount].title;
@@ -70,27 +77,22 @@ function displayQuestions() {
             el.addEventListener("click", function(event) {
                 event.stopPropagation();
 
-                if (el.innerText === questions[questionCount].answer) {
+                if (el.innerText === questions[questionCount]) {
                     score += secondsLeft;
                     // let user know if their correct
-                    let answer = document.createElement("p");
-                    answer.setAttribute("correct", "correct");
-                    var body = document.querySelector('body')
-                    body.appendChild(answer)
-                    document.getElementsByTagName("p")[0].innerHTML = "Correct!";
+                    // console.log(correctAns);
+
+                    answerCheck.textContent = "Correct!";
 
                 } else {
                     score -= 10;
                     secondsLeft = secondsLeft - 15;
                     // let user know if their wrong
-                    let answer = document.createElement("p");
-                    answer.setAttribute("wrong", "wrong");
-                    var body = document.querySelector('body')
-                    body.appendChild(answer)
-                    document.getElementsByTagName("p")[0].innerHTML = "Wrong!";
+                    answerCheck.textContent = "Wrong!";
                 }
 
                 questionDiv.innerHTML = "";
+
 
                 if (questionCount === questions.length) {
                     return;
@@ -108,7 +110,11 @@ function displayQuestions() {
 
 function captureUserScore() {
     timer.remove();
+    //clears out for loop of questions and correct or wrongs
     choices.textContent = "";
+    answerCheck.textContent = "";
+    questionDiv.innerHTML = "";
+
 
     let initialsInput = document.createElement("input");
     let postScoreBtn = document.createElement("input");
@@ -136,6 +142,7 @@ function captureUserScore() {
     });
     resultsDiv.append(initialsInput);
     resultsDiv.append(postScoreBtn);
+
 }
 
 //saves scores to local storage
@@ -152,9 +159,16 @@ const defineScoresArray = (arr1, arr2) => {
     }
 }
 
+// // when all questions are answered or timer reaches 0, game over
+// function clearCheck() {
+//     lineBreak.style.display = "none";
+//     answerCheck.style.display = 'none';
+// }
+
 // removes element from class
 const removeEls = (...els) => {
     for (let el of els) el.remove();
+
 }
 
 //displays scores 
