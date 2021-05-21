@@ -35,7 +35,7 @@
 <br />
 <br />
 
-> For more information visit the site clicking here:[Rachel McGraths Portfolio](https://rmwillow.github.io/portfolio/)
+> For more information visit the site clicking here:[Time tracking coding quiz](https://rmwillow.github.io/TimeTrackerQuiz/)
 
 <br/>
 
