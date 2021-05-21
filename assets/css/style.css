@@ -40,7 +40,6 @@ p {
 
 .submit {
     font-style: var(--white);
-    /* display: block; */
     font-size: 15px;
     cursor: pointer;
     text-decoration: none;
@@ -52,27 +51,12 @@ p {
     margin: 5px;
 }
 
-#tryAgain,
-.tryAgain {
-    font-style: var(--white);
-    display: block;
-    padding: 15px 25px;
-    margin: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    text-decoration: none;
-    outline: none;
-    color: white;
-    background-color: var(--darkPurple);
-    border: none;
-    border-radius: 4px;
-}
-
 button,
 #start-button,
 #correct,
 .back-button,
-.clear-scores {
+.clear-scores,
+.tryAgain {
     font-style: var(--white);
     display: block;
     padding: 15px 25px;
@@ -102,10 +86,6 @@ li {
     list-style-type: none;
 }
 
-#wrong #correct {
-    background-color: violet;
-}
-
 
 /* Create two equal columns that floats next to each other */
 
@@ -113,6 +93,8 @@ li {
     color: var(--lightPurple);
     background-color: var(--white);
     border: none;
+    font-size: 40px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 
@@ -120,9 +102,10 @@ li {
 
 .column {
     float: left;
-    width: 85%;
-    padding: 25px;
-    height: 300px;
+    width: 70%;
+    padding-left: 5%;
+    height: 60%;
+    font-size: 45px;
 }
 
 

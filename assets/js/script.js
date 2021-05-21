@@ -69,14 +69,13 @@ function setTime() {
     }, 1000);
 }
 
-
-
 //function to load the questions on the page
 function displayQuestions() {
+    removeEls(startButton);
     var lineBreak = document.getElementById("lineBreak");
     lineBreak.style.display = "block";
     answerCheck.style.display = "block";
-    removeEls(startButton);
+
     if (questionCount < questions.length) {
         questionDiv.innerHTML = questions[questionCount].title;
         choices.textContent = "";
@@ -88,22 +87,16 @@ function displayQuestions() {
             el.addEventListener("click", function(event) {
                 event.stopPropagation();
 
-                if (el.innerText === questions[questionCount]) {
+                if (el.innerText === questions[questionCount].answer) {
                     score += secondsLeft;
                     // let user know if their correct
-                    // console.log(correctAns);
-
                     answerCheck.textContent = "Correct!";
-
                 } else {
                     score -= 10;
                     secondsLeft = secondsLeft - 15;
                     // let user know if their wrong
                     answerCheck.textContent = "Wrong!";
                 }
-
-                questionDiv.innerHTML = "";
-
 
                 if (questionCount === questions.length) {
                     return;
@@ -124,13 +117,13 @@ function captureUserScore() {
     //clears out for loop of questions and correct or wrongs
     choices.textContent = "";
     answerCheck.textContent = "";
-    questionDiv.innerHTML = "";
+    lineBreak.style.display = "";
 
 
     let initialsInput = document.createElement("input");
     let postScoreBtn = document.createElement("input");
 
-    resultsDiv.innerHTML = `All Done! <br/ >You final score is ${score} points! <br /> Enter initials: `;
+    resultsDiv.innerHTML = `<strong> All Done! </strong> <br/ >You final score is ${score} points!  <br /><br />  Enter initials: `;
     initialsInput.setAttribute("type", "text");
     initialsInput.classList.add("textInput")
     postScoreBtn.setAttribute("type", "button");
@@ -213,7 +206,7 @@ function clearScoresBtn() {
     let clearBtn = document.createElement("input");
     clearBtn.setAttribute("type", "button");
     clearBtn.setAttribute("value", "Clear Scores");
-    clearBtn.classList.add("clear-scores")
+    clearBtn.classList.add("clear-scores");
     clearBtn.addEventListener("click", function(event) {
         event.preventDefault();
         removeEls(scoresDiv);
@@ -222,20 +215,17 @@ function clearScoresBtn() {
     scoresDiv.append(clearBtn)
 }
 
-//try again button to try to get a hight score
+//try again button to try to get a high score
 function tryAgainBtn() {
     let backBtn = document.createElement("input");
     backBtn.setAttribute("type", "button");
     backBtn.setAttribute("value", "Try Again");
-    backBtn.classList.add("back-button")
+    backBtn.classList.add("back-button");
     backBtn.addEventListener("click", function(event) {
         event.preventDefault();
         window.location.reload();
     })
-    buttonsDiv.append(backBtn)
+    buttonsDiv.append(backBtn);
 }
-
-
-
 
 viewScores();
