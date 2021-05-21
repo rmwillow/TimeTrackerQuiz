@@ -1,0 +1,118 @@
+:root {
+    --darkPurple: #351c75;
+    --lightPurple: #d497ef;
+    --white: #ffffff;
+    --gray: #d5d5d5;
+    --test: var(--lightPurple)
+}
+
+#centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#question-div {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 25px;
+    color: black;
+}
+
+p {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 25px;
+    color: var(--gray);
+}
+
+#results {
+    font-size: 25px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.quesChoice {
+    width: 50%;
+    height: 50%;
+    padding: 50px;
+    border: var(--darkPurple) solid;
+    position: fixed;
+}
+
+.submit {
+    font-style: var(--white);
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    color: white;
+    background-color: var(--darkPurple);
+    border: none;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+button,
+#start-button,
+#correct,
+.back-button,
+.clear-scores,
+.tryAgain {
+    font-style: var(--white);
+    display: block;
+    padding: 15px 25px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    color: white;
+    background-color: var(--darkPurple);
+    border: none;
+    border-radius: 4px;
+}
+
+.submit:hover,
+button:hover {
+    background-color: var(--lightPurple)
+}
+
+button:active {
+    background-color: var(--lightPurple);
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+li {
+    list-style-type: none;
+}
+
+
+/* Creates two equal columns that floats next to each other */
+
+#view-scores {
+    color: var(--lightPurple);
+    background-color: var(--white);
+    border: none;
+    font-size: 40px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+/* time and scores header */
+
+.column {
+    float: left;
+    width: 70%;
+    padding-left: 5%;
+    height: 60%;
+    font-size: 45px;
+}
+
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
