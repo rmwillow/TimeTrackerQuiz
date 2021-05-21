@@ -16,11 +16,17 @@ let viewScoresBtn = document.getElementById("view-scores")
 let startButton = document.getElementById("start-button");
 startButton.addEventListener("click", setTime);
 
+//declare submit button class for styles
 var postScoreBtn = document.getElementById("submit");
 
+//declare text input button class for styles
 var initialsInput = document.getElementById("textInput");
 
+//declare back button class for styles
+var backBtn = document.getElementById("back-button");
 
+//declare clear button class for styles
+var clearBtn = document.getElementById("clear-scores")
 
 // variable for the questions title
 var questionDiv = document.getElementById("question-div");
@@ -124,13 +130,13 @@ function captureUserScore() {
     let initialsInput = document.createElement("input");
     let postScoreBtn = document.createElement("input");
 
-    resultsDiv.innerHTML = `You scored ${score} points! Enter initials: `;
+    resultsDiv.innerHTML = `All Done! <br/ >You final score is ${score} points! <br /> Enter initials: `;
     initialsInput.setAttribute("type", "text");
     initialsInput.classList.add("textInput")
     postScoreBtn.setAttribute("type", "button");
     postScoreBtn.classList.add("submit")
 
-    postScoreBtn.setAttribute("value", "Submit Score!");
+    postScoreBtn.setAttribute("value", "Submit");
     postScoreBtn.addEventListener("click", function(event) {
         event.preventDefault();
         let scoresArray = defineScoresArray(storageArray, emptyArray);
@@ -167,12 +173,6 @@ const defineScoresArray = (arr1, arr2) => {
     }
 }
 
-// // when all questions are answered or timer reaches 0, game over
-// function clearCheck() {
-//     lineBreak.style.display = "none";
-//     answerCheck.style.display = 'none';
-// }
-
 // removes element from class
 const removeEls = (...els) => {
     for (let el of els) el.remove();
@@ -181,7 +181,6 @@ const removeEls = (...els) => {
 
 //displays scores 
 function displayAllScores() {
-    //removes questions that are stuck in a loop for incompletion or pass of the quiz
     // removes elements at score display
     removeEls(timer, startButton, resultsDiv, questionDiv);
     let scoresArray = defineScoresArray(storageArray, emptyArray);
@@ -214,6 +213,7 @@ function clearScoresBtn() {
     let clearBtn = document.createElement("input");
     clearBtn.setAttribute("type", "button");
     clearBtn.setAttribute("value", "Clear Scores");
+    clearBtn.classList.add("clear-scores")
     clearBtn.addEventListener("click", function(event) {
         event.preventDefault();
         removeEls(scoresDiv);
@@ -227,6 +227,7 @@ function tryAgainBtn() {
     let backBtn = document.createElement("input");
     backBtn.setAttribute("type", "button");
     backBtn.setAttribute("value", "Try Again");
+    backBtn.classList.add("back-button")
     backBtn.addEventListener("click", function(event) {
         event.preventDefault();
         window.location.reload();

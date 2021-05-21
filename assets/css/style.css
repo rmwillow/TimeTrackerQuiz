@@ -25,46 +25,69 @@ p {
     color: var(--gray);
 }
 
+#results {
+    font-size: 25px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 .quesChoice {
     width: 50%;
     height: 50%;
     padding: 50px;
     border: var(--darkPurple) solid;
+    position: fixed;
 }
 
-.submit,
-.textInput {
+.submit {
     font-style: var(--white);
-    display: block;
-    padding: 15px 25px;
-    margin: 5px;
-    font-size: 20px;
-    cursor: pointer;
-    text-decoration: none;
-    outline: none;
-    color: white;
-    background-color: var(--lightPurple);
-    border: none;
-    border-radius: 15px;
-}
-
-button,
-#start-button,
-#correct {
-    font-style: var(--white);
-    display: block;
-    padding: 15px 25px;
-    margin: 5px;
-    font-size: 20px;
+    /* display: block; */
+    font-size: 15px;
     cursor: pointer;
     text-decoration: none;
     outline: none;
     color: white;
     background-color: var(--darkPurple);
     border: none;
-    border-radius: 15px;
+    border-radius: 4px;
+    margin: 5px;
 }
 
+#tryAgain,
+.tryAgain {
+    font-style: var(--white);
+    display: block;
+    padding: 15px 25px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    color: white;
+    background-color: var(--darkPurple);
+    border: none;
+    border-radius: 4px;
+}
+
+button,
+#start-button,
+#correct,
+.back-button,
+.clear-scores {
+    font-style: var(--white);
+    display: block;
+    padding: 15px 25px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    color: white;
+    background-color: var(--darkPurple);
+    border: none;
+    border-radius: 4px;
+}
+
+.submit:hover,
 button:hover {
     background-color: var(--lightPurple)
 }
