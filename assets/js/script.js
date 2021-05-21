@@ -53,7 +53,7 @@ var questionCount = 0;
 let score = 0
 
 var correctAns = 0;
-var answerCheck = document.getElementById("answerCheck");
+var answer = document.getElementById("answer");
 
 //Timer starts when the user clicks startButton (see above).
 function setTime() {
@@ -71,10 +71,11 @@ function setTime() {
 
 //function to load the questions on the page
 function displayQuestions() {
-    removeEls(startButton);
+
     var lineBreak = document.getElementById("lineBreak");
     lineBreak.style.display = "block";
-    answerCheck.style.display = "block";
+    answer.style.display = "block";
+    removeEls(startButton);
 
     if (questionCount < questions.length) {
         questionDiv.innerHTML = questions[questionCount].title;
@@ -88,14 +89,18 @@ function displayQuestions() {
                 event.stopPropagation();
 
                 if (el.innerText === questions[questionCount].answer) {
-                    score += secondsLeft;
+                    score += 25;
+                    secondsLeft = secondsLeft;
+
                     // let user know if their correct
-                    answerCheck.textContent = "Correct!";
+                    answer.textContent = "Correct!";
+                    console.log(answer);
                 } else {
-                    score -= 10;
-                    secondsLeft = secondsLeft - 15;
+                    score -= 5;
+                    secondsLeft = secondsLeft -= 10;
                     // let user know if their wrong
-                    answerCheck.textContent = "Wrong!";
+                    answer.textContent = "Wrong!";
+                    console.log(answer);
                 }
 
                 if (questionCount === questions.length) {
@@ -116,8 +121,10 @@ function captureUserScore() {
     timer.remove();
     //clears out for loop of questions and correct or wrongs
     choices.textContent = "";
-    answerCheck.textContent = "";
+    answer.textContent = "";
     lineBreak.style.display = "";
+    questionDiv.innerHTML = "";
+
 
 
     let initialsInput = document.createElement("input");
